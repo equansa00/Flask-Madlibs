@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Madlibs Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Madlibs Game</h1>
+    <form action="/story" method="post">
+        {% for prompt in prompts %}
+        <label for="{{prompt}}">{{prompt.capitalize()}}:</label>
+        <input type="text" name="{{prompt}}" id="{{prompt}}" required><br><br>
+        {% endfor %}
+        <input type="submit" value="Generate Story">
+        <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+        
+    </form>
+</body>
+</html>
